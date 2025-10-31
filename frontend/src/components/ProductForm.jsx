@@ -65,10 +65,13 @@ function ProductForm({ product, onSubmit, onCancel }) {
       return;
     }
 
+    // Extract only the fields we need, excluding MongoDB internal fields
+    const { _id, __v, createdAt, updatedAt, ...productData } = formData;
+    
     onSubmit({
-      ...formData,
-      price: parseFloat(formData.price),
-      stock: parseInt(formData.stock)
+      ...productData,
+      price: parseFloat(productData.price),
+      stock: parseInt(productData.stock)
     });
   };
 
