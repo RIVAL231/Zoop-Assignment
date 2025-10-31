@@ -1,0 +1,89 @@
+.reaction-bar {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 0.5rem;
+  box-shadow: var(--shadow-lg);
+  margin-top: 1.5rem;
+}
+
+.reaction-label {
+  font-weight: 600;
+  color: var(--dark);
+}
+
+.reactions {
+  display: flex;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.reaction-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1rem;
+  background: white;
+  border: 2px solid var(--border);
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex: 1;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.reaction-btn:not(:disabled):hover {
+  border-color: var(--reaction-color);
+  color: var(--reaction-color);
+  transform: scale(1.1);
+}
+
+.reaction-btn:not(:disabled):active {
+  transform: scale(0.95);
+  animation: reaction-pop 0.3s ease;
+}
+
+.reaction-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+@keyframes reaction-pop {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(0.95);
+  }
+}
+
+@media (max-width: 768px) {
+  .reaction-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .reaction-label {
+    text-align: center;
+  }
+
+  .reactions {
+    justify-content: stretch;
+  }
+
+  .reaction-btn {
+    padding: 1rem 0.5rem;
+  }
+
+  .reaction-btn span {
+    font-size: 0.65rem;
+  }
+}
